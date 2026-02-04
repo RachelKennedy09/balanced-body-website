@@ -13,8 +13,13 @@ export default function Navbar() {
   return (
     <header className="border-b border-black/10">
       <div className="mx-auto flex max-w-[var(--max)] items-center justify-between px-5 py-4">
-        <Link href="/" className="font-semibold tracking-tight">
-          Balanced Body
+       <Link href="/" className="flex items-center gap-3">
+          <img
+            src="/logo.png"
+            alt="Balanced Body Sports Rehab logo"
+            className="h-16 w-auto"
+          />
+         
         </Link>
 
         <nav className="hidden gap-6 md:flex">
