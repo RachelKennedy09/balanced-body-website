@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+const titleFont = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-title",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Balanced Body | Sports Rehab",
@@ -13,7 +20,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={titleFont.variable}>
         <Navbar />
         <main className="min-h-[70vh]">{children}</main>
         <Footer />

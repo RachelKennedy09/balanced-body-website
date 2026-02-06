@@ -67,16 +67,15 @@ export default function HomePage() {
       {/* HERO */}
       <section className="py-14 md:py-20">
         <p className="text-sm uppercase tracking-widest text-black/60">
-          Sports Rehab
+          Balanced Body Sports Rehab
         </p>
 
         <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-6xl">
-          Play pain-free.
+          Optimize your performance.
         </h1>
 
         <p className="mt-5 max-w-2xl text-lg text-black/70">
-          A movement-first approach to helping active people reduce pain, restore function,
-          and return to the activities they love.
+          Identify the root cause of pain and tightness to optimize your performance and unlock your full potential.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
@@ -96,8 +95,62 @@ export default function HomePage() {
           </a>
         </div>
 
-        {/* Photo placeholder */}
-        <div className="mt-10 h-56 w-full rounded-2xl border border-black/10 bg-black/5 md:h-72" />
+        {/* Hero video */}
+        <div className="mt-10 overflow-hidden rounded-2xl">
+          <video
+            className="aspect-video w-full object-cover"
+            src="/videos/hero-video.mp4.mp4"
+            poster="/therapy%20photos/hero-photo.png.PNG"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        </div>
+      </section>
+
+      {/* WHAT IS MAT */}
+      <section className="py-12 border-t border-black/10">
+        <div className="relative overflow-hidden rounded-2xl border border-black/10">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url(/therapy%20photos/IMG_0633.JPG)" }}
+          />
+          <div className="absolute inset-0 bg-white/80 backdrop-blur-[1px]" />
+
+          <div className="relative p-8 md:p-10">
+          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-xs uppercase tracking-widest text-black/60">
+                Muscle Activation Therapy
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight">
+                What Is Muscle Activation Therapy?
+              </h2>
+              <p className="mt-4 text-black/70 leading-relaxed">
+                Muscle Activation Techniques (MAT) is a targeted approach to fix muscle imbalances
+                at the root—so you move better, feel stronger, and stay pain-free.
+              </p>
+              <p className="mt-4 text-black/70 leading-relaxed">
+                Unlike treatments that mask symptoms, MAT gets to the source—helping athletes stay
+                strong, recover fast, and play full-out.
+              </p>
+            </div>
+
+            <div className="w-full max-w-md rounded-2xl border border-black/10 bg-white p-6">
+              <p className="text-sm font-semibold">What MAT does</p>
+              <ul className="mt-4 space-y-3 text-sm text-black/70">
+                <li>Assesses mobility + muscle function</li>
+                <li>Pinpoints weak or underperforming muscles</li>
+                <li>Reactivates muscles with precise techniques</li>
+                <li>Restores nervous system connection</li>
+                <li>Reduces pain + prevents injury</li>
+                <li>Boosts performance + recovery</li>
+              </ul>
+            </div>
+          </div>
+          </div>
+        </div>
       </section>
 
             {/* REVIEWS */}
@@ -133,19 +186,168 @@ export default function HomePage() {
         </p>
       </section>
 
-
-      {/* WHAT YOU HELP WITH */}
+      {/* PRO REVIEWS */}
       <section className="py-12 border-t border-black/10">
-        <h2 className="text-2xl font-semibold tracking-tight">What I help with</h2>
+        <div>
+          <h2 className="text-2xl font-semibold tracking-tight">
+            What the Pros Are Saying About MAT
+          </h2>
+          <p className="mt-2 max-w-2xl text-black/70">
+            Trusted feedback from professional athletes and elite performance circles.
+          </p>
+        </div>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
           {[
-            "Pain and tightness that keeps coming back",
-            "Recovery after injury or overuse",
-            "Movement limitations affecting performance",
-          ].map((text) => (
-            <div key={text} className="rounded-2xl border border-black/10 p-6">
-              <p className="text-black/80">{text}</p>
+            {
+              image: "/reviews/pro-review-1.jpeg",
+              label: "Video testimonial",
+              href: "https://www.youtube.com/watch?v=EL8Xn83WvHU",
+            },
+            {
+              image: "/reviews/pro-review-2.jpeg",
+              label: "Video testimonial",
+              href: "https://www.youtube.com/watch?v=4dXzwfg9ERw",
+            },
+            {
+              image: "/reviews/pro-review-3.jpeg",
+              label: "Sports Illustrated",
+            },
+          ].map((item) => (
+            <div key={item.image} className="rounded-2xl border border-black/10 p-4">
+              <div className="overflow-hidden rounded-xl border border-black/10 bg-black/5">
+                <img
+                  src={item.image}
+                  alt="Professional review"
+                  className="h-auto w-full object-contain"
+                />
+              </div>
+
+              {item.href ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-4 inline-block rounded-full border border-black px-4 py-2 text-sm font-medium hover:bg-black hover:text-white transition"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <div className="mt-4 inline-block rounded-full border border-black px-4 py-2 text-sm font-medium text-black/70">
+                  {item.label}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* MAT LINK */}
+      <section className="py-12 border-t border-black/10">
+        <div className="rounded-2xl border border-black/10 bg-black/5 p-8 md:p-10">
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Muscle Activation Techniques
+          </h2>
+          <p className="mt-3 max-w-3xl text-black/70 leading-relaxed">
+            MAT's primary goal is to activate inhibited muscles by addressing communication issues within the
+            neuromuscular system rather than focusing solely on symptoms.
+          </p>
+          <a
+            href="https://muscleactivation.com/for-clients/"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 inline-block rounded-full border border-black px-5 py-2 text-sm font-medium hover:bg-black hover:text-white transition"
+          >
+            Learn more about MAT
+          </a>
+        </div>
+      </section>
+
+
+      {/* HOW IT WORKS */}
+      <section className="py-12 border-t border-black/10">
+        <h2 className="text-2xl font-semibold tracking-tight">How it works</h2>
+        <p className="mt-3 max-w-2xl text-black/70">
+          Four steps designed to assess, address, and strengthen how you move.
+        </p>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          {[
+            {
+              title: "Biomechanics Assessment",
+              image: "/therapy%20photos/IMG_0930-1.JPG",
+              label: "Assess",
+              subtitle: "Biomechanics Assessment",
+              lines: [
+                "Find the underlying cause of the injury",
+                "Identify even the most subtle limitation that is compromising your performance",
+                "Determine what muscles aren’t contracting efficiently",
+              ],
+            },
+            {
+              title: "MAT Testing",
+              body: "Text coming soon.",
+              image: "/therapy%20photos/IMG_0866.JPG",
+              label: "Test",
+              subtitle: "Muscle Activation Therapy Testing",
+              lines: [
+                "Evaluate the function and recruitment of muscles.",
+                "Optimize individual muscle function to ensure full-body function.",
+                "If all muscles are working independently, they function more effectively together.",
+              ],
+            },
+            {
+              title: "MAT Treatment",
+              body: "Text coming soon.",
+              image: "/therapy%20photos/IMG_1460.JPG",
+              label: "Treat",
+              subtitle: "Muscle Activation Therapy Treatment",
+              lines: [
+                "Targeted palpations and specialized techniques, MAT treatments jumpstart dormant muscles to restore balance",
+                "and function to the body's kinetic chain.",
+              ],
+            },
+            {
+              title: "Corrective Strength Training",
+              body: "Text coming soon.",
+              image: "/therapy%20photos/IMG_0921.JPG",
+              label: "Train",
+              subtitle: "Corrective Strength Training",
+              lines: [
+                "When you optimize your mechanics, you can peak your performance.",
+                "Neuromuscular re-education, to increase communication between your brain and body.",
+              ],
+            },
+          ].map((item) => (
+            <div key={item.title} className="rounded-2xl border border-black/10 p-6">
+              {item.image ? (
+                <div className="relative overflow-hidden rounded-2xl border border-black/10">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-72 w-full object-cover md:h-80"
+                  />
+                  <div className="absolute inset-0 bg-black/25" />
+                  <div className="absolute inset-0 flex items-end">
+                    <div className="w-full bg-black/25 p-5 text-white backdrop-blur-[1px]">
+                      <p className="text-xs uppercase tracking-widest text-white/80">
+                        {item.label}
+                      </p>
+                      <h3 className="mt-2 text-xl font-semibold">{item.subtitle}</h3>
+                      <div className="mt-3 space-y-2 text-sm text-white/90 leading-relaxed">
+                        {item.lines?.map((line) => (
+                          <p key={line}>{line}</p>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <h3 className="font-semibold">{item.title}</h3>
+                  <p className="mt-2 text-sm text-black/70">{item.body}</p>
+                </>
+              )}
             </div>
           ))}
         </div>

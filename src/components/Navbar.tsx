@@ -13,11 +13,11 @@ export default function Navbar() {
   return (
     <header className="border-b border-black/10">
       <div className="mx-auto flex max-w-[var(--max)] items-center justify-between px-5 py-4">
-       <Link href="/" className="flex items-center gap-3">
+       <Link href="/" className="flex h-[50px] items-center gap-3 overflow-hidden">
           <img
-            src="/logo.png"
+            src="/logo/navbar-logo.png"
             alt="Balanced Body Sports Rehab logo"
-            className="h-16 w-auto"
+            className="h-[220px] w-auto object-cover"
           />
          
         </Link>
