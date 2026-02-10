@@ -1,5 +1,4 @@
-const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || "#";
-
+const bookingUrl = "https://cortney.janeapp.com/#staff_member/1";
 export default function ContactPage() {
   return (
     <div className="mx-auto max-w-[var(--max)] px-5 py-14">

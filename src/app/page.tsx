@@ -59,8 +59,7 @@ const reviews = [
 
 
 
-const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || "#";
-
+const bookingUrl = "https://cortney.janeapp.com/#staff_member/1";
 export default function HomePage() {
   return (
     <div className="mx-auto max-w-[var(--max)] px-5">
