@@ -16,81 +16,239 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="border-b border-black/10">
-      <div className="relative mx-auto flex max-w-[var(--max)] items-center justify-between px-5 py-4">
-        <Link
-          href="/"
-          className="flex h-[50px] w-[140px] items-center gap-3 overflow-hidden flex-shrink-0 sm:w-[160px]"
-        >
+    <header className="navbar">
+      <div className="bar">
+        {/* LEFT: Logo */}
+        <Link href="/" className="logoLink" aria-label="Go to homepage">
           <img
             src="/logo/navbar-logo.png"
             alt="Balanced Body Sports Rehab logo"
-            className="h-[220px] w-full object-cover"
+            className="logoImg"
           />
         </Link>
 
-        <nav className="hidden gap-6 md:flex">
+        {/* CENTER: Desktop nav */}
+        <nav className="desktopNav" aria-label="Main navigation">
           {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm hover:underline underline-offset-4"
-            >
+            <Link key={item.href} href={item.href} className="navLink">
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        {/* RIGHT: CTA (desktop) + Hamburger (mobile) */}
+        <div className="rightControls">
           <a
             href={bookingUrl}
             target="_blank"
             rel="noreferrer"
-            className="rounded-full border border-black px-4 py-2 text-sm font-medium hover:bg-black hover:text-white transition"
+            className="cta"
+          >
+            Book Now
+          </a>
+
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="hamburger"
+          >
+            <span className="hamburgerIcon" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </span>
+          </button>
+        </div>
+      </div>
+
+      {/* MOBILE MENU */}
+      {open && (
+        <div className="mobileMenu">
+          {nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="mobileLink"
+              onClick={() => setOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
+
+          <a
+            href={bookingUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mobileCta"
+            onClick={() => setOpen(false)}
           >
             Book Now
           </a>
         </div>
+      )}
 
-<button
-  type="button"
-  aria-label="Toggle menu"
-  aria-expanded={open}
-  onClick={() => setOpen((v) => !v)}
-  className="fixed right-4 top-4 z-[9999] flex h-14 w-20 items-center justify-center rounded-xl border-2 border- bg-white-300 md:hidden"
->
-  <span className="text-xl font-bold">≡</span>
-</button>
+      {/* STYLES */}
+      <style jsx>{`
+        .navbar {
+          background: white;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
 
-      </div>
+        .bar {
+          max-width: 72rem;
+          margin: 0 auto;
+          padding: 14px 20px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+        }
 
-      {open ? (
-        <div className="mx-auto max-w-[var(--max)] px-5 pb-4 md:hidden">
-          <div className="mt-2 rounded-2xl border border-black/10 p-4">
-            <div className="flex flex-col gap-3 text-sm">
-              {nav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="underline-offset-4 hover:underline"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <a
-                href={bookingUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 inline-flex w-fit rounded-full border border-black px-4 py-2 text-sm font-medium hover:bg-black hover:text-white transition"
-                onClick={() => setOpen(false)}
-              >
-                Book Now
-              </a>
-            </div>
-          </div>
-        </div>
-      ) : null}
+        /* LOGO */
+        .logoLink {
+          width: 160px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          flex-shrink: 0;
+        }
+
+        .logoImg {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+        }
+
+        /* DESKTOP NAV */
+        .desktopNav {
+          display: none;
+          gap: 24px;
+        }
+
+        .navLink {
+          font-size: 14px;
+          color: black;
+          text-decoration: none;
+        }
+
+        .navLink:hover {
+          text-decoration: underline;
+          text-underline-offset: 4px;
+        }
+
+        /* RIGHT SIDE */
+        .rightControls {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          flex-shrink: 0;
+        }
+
+        .cta {
+          display: none;
+          border: 1px solid black;
+          padding: 8px 14px;
+          border-radius: 999px;
+          font-size: 14px;
+          font-weight: 600;
+          background: white;
+          color: black;
+          text-decoration: none;
+        }
+
+        .cta:hover {
+          background: black;
+          color: white;
+        }
+
+        /* HAMBURGER */
+        .hamburger {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 64px;
+          height: 44px;
+          border-radius: 12px;
+          border: 1px solid rgba(0, 0, 0, 0.35);
+          background: white;
+        }
+
+        .hamburgerIcon {
+          width: 34px;
+          height: 22px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .hamburgerIcon span {
+          height: 4px;
+          width: 100%;
+          background: black;
+          border-radius: 999px;
+          display: block;
+        }
+
+        /* MOBILE MENU */
+        .mobileMenu {
+          border-top: 1px solid rgba(0, 0, 0, 0.1);
+          padding: 14px 20px 18px;
+          max-width: 72rem;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          background: white;
+        }
+
+        .mobileLink {
+          font-size: 14px;
+          color: black;
+          text-decoration: none;
+        }
+
+        .mobileLink:hover {
+          text-decoration: underline;
+          text-underline-offset: 4px;
+        }
+
+        .mobileCta {
+          margin-top: 8px;
+          border: 1px solid black;
+          padding: 8px 14px;
+          border-radius: 999px;
+          font-size: 14px;
+          font-weight: 600;
+          background: white;
+          color: black;
+          text-decoration: none;
+          width: fit-content;
+        }
+
+        .mobileCta:hover {
+          background: black;
+          color: white;
+        }
+
+        /* DESKTOP BREAKPOINT */
+        @media (min-width: 1024px) {
+          .desktopNav {
+            display: flex;
+          }
+
+          .cta {
+            display: inline-flex;
+          }
+
+          .hamburger {
+            display: none;
+          }
+        }
+      `}</style>
     </header>
   );
 }
