@@ -57,7 +57,7 @@ export default function Navbar() {
   aria-label="Toggle menu"
   aria-expanded={open}
   onClick={() => setOpen((v) => !v)}
-  className="fixed right-4 top-4 z-[9999] flex h-14 w-20 items-center justify-center rounded-xl border-2 border-black bg-yellow-300 md:hidden"
+  className="fixed right-4 top-4 z-[9999] flex h-14 w-20 items-center justify-center rounded-xl border-2 border-none bg-white-300 md:hidden"
 >
   <span className="text-xl font-bold">≡</span>
 </button>
