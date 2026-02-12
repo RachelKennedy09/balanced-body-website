@@ -248,7 +248,7 @@ export default function HomePage() {
             Muscle Activation Techniques
           </h2>
           <p className="mt-3 max-w-3xl text-black/70 leading-relaxed">
-            MAT's primary goal is to activate inhibited muscles by addressing communication issues within the
+            MATs primary goal is to activate inhibited muscles by addressing communication issues within the
             neuromuscular system rather than focusing solely on symptoms.
           </p>
           <a

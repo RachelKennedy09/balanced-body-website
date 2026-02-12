@@ -2,7 +2,17 @@ export default function Footer() {
   return (
     <footer className="border-t border-black/10">
       <div className="mx-auto max-w-[var(--max)] px-5 py-10 text-center text-sm text-black/70">
-        <p className="font-medium text-black">Balanced Body</p>
+       <div className="flex justify-center">
+  <img
+    src="/logo/logo-1.png"
+    alt="Balanced Body logo"
+    style={{
+      height: "300px",
+      width: "auto",
+    }}
+  />
+</div>
+
         <p className="mt-2">Sports rehab focused on helping active people move and play pain-free.</p>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3 text-center">

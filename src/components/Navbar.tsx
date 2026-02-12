@@ -21,7 +21,7 @@ export default function Navbar() {
         {/* LEFT: Logo */}
         <Link href="/" className="logoLink" aria-label="Go to homepage">
           <img
-            src="/logo/navbar-logo.png"
+            src="/logo/logo.png"
             alt="Balanced Body Sports Rehab logo"
             className="logoImg"
           />
@@ -96,32 +96,29 @@ export default function Navbar() {
           border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
-        .bar {
-          max-width: 72rem;
-          margin: 0 auto;
-          padding: 14px 20px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 16px;
-        }
+       .bar {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 8px 16px; /* was 14px 20px */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px; /* slightly tighter */
+}
 
         /* LOGO */
-        .logoLink {
-          width: 160px;
-          height: 44px;
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          flex-shrink: 0;
-        }
+       .logoLink {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
 
-        .logoImg {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          display: block;
-        }
+       .logoImg {
+  height: 50px;  /* set actual visible size */
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
 
         /* DESKTOP NAV */
         .desktopNav {
@@ -148,17 +145,17 @@ export default function Navbar() {
           flex-shrink: 0;
         }
 
-        .cta {
-          display: none;
-          border: 1px solid black;
-          padding: 8px 14px;
-          border-radius: 999px;
-          font-size: 14px;
-          font-weight: 600;
-          background: white;
-          color: black;
-          text-decoration: none;
-        }
+      .cta {
+  display: none;
+  border: 1px solid black;
+  padding: 6px 12px;  /* was 8px 14px */
+  border-radius: 999px;
+  font-size: 13px;    /* was 14 */
+  font-weight: 600;
+  background: white;
+  color: black;
+  text-decoration: none;
+}
 
         .cta:hover {
           background: black;
@@ -177,21 +174,22 @@ export default function Navbar() {
           background: white;
         }
 
-        .hamburgerIcon {
-          width: 34px;
-          height: 22px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
+       .hamburgerIcon {
+  width: 22px;   /* was 34 */
+  height: 14px;  /* was 22 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-        .hamburgerIcon span {
-          height: 4px;
-          width: 100%;
-          background: black;
-          border-radius: 999px;
-          display: block;
-        }
+
+      .hamburgerIcon span {
+  height: 2px;   /* was 4 */
+  width: 100%;
+  background: black;
+  border-radius: 999px;
+  display: block;
+}
 
         /* MOBILE MENU */
         .mobileMenu {
